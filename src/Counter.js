@@ -22,14 +22,15 @@
 import React, { useState, useEffect } from 'react';
 
 function Counter() {
+    const [count, setCount] = useState(0);
+
     useEffect(() => {
         console.log("It's mounting ....");
+        console.log("Updated : " + count)
         return () => {
-            console.log("It's unmounting ....");
+            console.log("Clean up - " + count);
         };
-    }, []);
-
-    const [count, setCount] = useState(0);
+    }, [count]);
 
     return (
         <div>
